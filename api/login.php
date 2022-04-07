@@ -6,22 +6,16 @@
 
     $post= new Post($db);
 
-    $post->id = isset()
+    $post->login = isset($_GET['login']) ? $_GET['login'] : die();
+    $post->password = isset($_GET['password']) ? $_GET['password'] : die();
+    $post->Login();
 
-    if($num > 0){
-        $post_arr = array();
-        $post_arr['data'] = array();
-        while($row=$result->fetch(PDO::FETCH_ASSOC)){
-            extract($row);
-            $post_item = array(
-                'id' => $id,
-                'login' => $login,
-                'role' => $role
-            );
-            array_push($post_arr['data'], $post_item);
-        }
-        echo json_encode($post_arr);
-    }else{
-        echo json_encode(array('message' => 'No posts found.'));
-    }
+    $post_arr = array(
+        'id' =>$post->id,
+        'login'=>$post->login,
+        'password'=>$post->password,
+        'role'=>$post->role
+    );
+
+    print_r(json_encode($post_arr));
 ?>
