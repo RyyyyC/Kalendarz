@@ -57,7 +57,7 @@ document.onkeydown = (e) =>{
         clearMonths(year, months);
         makeTr(year);
         makeTd(year);
-        document.getElementsByClassName("currentYear")[0].innerHTML = `<h1>${year}</h1>`;
+        document.getElementsByClassName("currentYear")[0].innerHTML = `<p>${year}</p>`;
         year--;
     }
     if(e.keyCode == '39'){
@@ -65,12 +65,12 @@ document.onkeydown = (e) =>{
         clearMonths(year, months);
         makeTr(year);
         makeTd(year);
-        document.getElementsByClassName("currentYear")[0].innerHTML = `<h1>${year}</h1>`;
+        document.getElementsByClassName("currentYear")[0].innerHTML = `<p>${year}</p>`;
         year++;
     }
 }
 
-document.getElementsByClassName("currentYear")[0].innerHTML = `<h1>${year}</h1>`;
+document.getElementsByClassName("currentYear")[0].innerHTML = `<p>${year}</p>`;
 
 makeTr(year);
 
