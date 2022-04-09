@@ -46,7 +46,7 @@ class Post
         $this->login = htmlspecialchars(strip_tags($this->login));
         $this->password = htmlspecialchars(strip_tags($this->password));
         $stmt->bindParam(':login', $this->login);
-        $stmt->bindParam(':password', $this->password);
+        $stmt->bindParam(':password', md5($this->password));
         if ($stmt->execute()) {
             return true;
         }

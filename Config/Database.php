@@ -35,13 +35,9 @@ class Database
     public function AddValues()
     {
         $conn = new mysqli($this->host, $this->user, $this->password, $this->database);
-        $conn->query("INSERT INTO `uzytkownicy` VALUES (NULL, 'admin', 'admin', 'admin'), (NULL, 'user', 'user' ,'user');");
+        $conn->query("INSERT INTO `uzytkownicy` VALUES (NULL, 'admin', '" . md5("admin") . "', 'admin'), (NULL, 'user', '" . md5("user") . "' ,'user');");
         $conn->query("INSERT INTO `wydarzenie` VALUES (NULL, 2, 'Urodziny', '2022-04-06', NULL);");
     }
-
-    // public function DisconnectFromDatabase(){
-    //     return $conn->close();
-    // }
 }
 
 $database = new Database();

@@ -15,11 +15,9 @@ $post->login = $data->login;
 $post->password = $data->password;
 
 if ($post->Update()) {
-    echo json_encode(
-        array('message' => 'Post updated.')
-    );
+    http_response_code(200);
+    print_r(json_encode(array('message' => 'Post updated.')));
 } else {
-    echo json_encode(
-        array('message' => 'Post not updated.')
-    );
+    http_response_code(400);
+    print_r(json_encode(array('message' => 'Post not updated.')));
 }
