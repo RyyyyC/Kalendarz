@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <input type="text" placeholder="login" id="login"/>
+    <input type="password" placeholder="password" id="password"/>
+    <input type="button" id="button" value="Register!"/>
+    <script>
+        var req = new XMLHttpRequest();
+            // var req = new XMLHttpRequest();
+            // req.open( "GET", 'http://localhost/Kalendarz/api/login.php?login=admin&password=user', false );
+            // req.send( null );
+            // if(req.status == 200)
+            //     console.log(req.responseText);
+            // else
+            //     console.log(req.responseText)
+
+            // GET
+            // fetch(`http://localhost/Kalendarz/api/login.php?login=admin&password=admin`)
+            //     .then(response => response.json())
+            //     .then(data => console.log(data));
+
+            // i = 0
+            // document.getElementById("button").addEventListener("click", function(){
+            //     console.log(i)
+            //     req.open("POST", 'http://localhost/Kalendarz/api/register.php', false);
+            //     req.setRequestHeader('Content-Type', 'application/json');
+            //     req.send({
+            //         "login": "admin",
+            //         "password": "admin"
+            //     });
+            //     console.log(req.responseText);
+            //     i++
+            // })
+
+            // document.getElementById("button").addEventListener("click", function(){
+            //     fetch('http://localhost/Kalendarz/api/register.php', {
+            //     method: "POST",
+            //     headers: {'Content-Type': 'application/json'}, 
+            //     body: JSON.stringify({
+            //         "login": "admin",
+            //         "password": "admin"})})
+            //     .then(res => {
+            //     console.log("Request complete! response:", res);
+            //     });
+            // })
+
+            // fetch('http://localhost/Kalendarz/api/register.php', {
+            //     method:"POST",
+            //     headers: {'Content-Type': 'application/json'},
+            //     body: {"login":'admin',"password":'admin'}
+            // }).then(results=>results.json());
+
+            //document.getElementById("login").value
+            //document.getElementById("password").value
+
+            // fetch('http://localhost/Kalendarz/api/register.php', {
+            //     method: "POST",
+            //     headers: {'Content-Type': 'application/json'}, 
+            //     body: JSON.stringify({
+            //         "login": 'admin',
+            //         "password": 'admin'})})
+            //     .then(res => {
+            //     console.log("Request complete! response:", res);
+            //     });
+
+            document.getElementById("button").addEventListener("click", function(){
+                window.location.href = `./action/register.php`;
+            })
+    </script>
+</body>
+</html>

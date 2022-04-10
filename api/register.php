@@ -11,11 +11,10 @@ $post = new Post($db);
 $data = json_decode(file_get_contents("php://input"));
 
 $post->login = $data->login;
-$post->password = md5($data->password);
-
+$post->password = $data->password;
 if ($post->Register()) {
     http_response_code(200);
-    print_r(json_encode(array('message' => 'Post created.')));
+    print_r(json_encode(array('message' => 'Post created.', 'login' => $post->login, 'password' => $post->password)));
 } else {
     http_response_code(400);
     print_r(json_encode(array('message' => 'Post not created.')));

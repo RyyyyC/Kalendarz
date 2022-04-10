@@ -41,17 +41,23 @@ class Post
 
     public function Register()
     {
+        //if ($this->login != null || $this->login != "") {
+
+        $this->password = md5($this->password);
+
         $query = 'INSERT INTO ' . $this->table . ' SET login = :login, password = :password, role = "user"';
         $stmt = $this->conn->prepare($query);
         $this->login = htmlspecialchars(strip_tags($this->login));
         $this->password = htmlspecialchars(strip_tags($this->password));
         $stmt->bindParam(':login', $this->login);
-        $stmt->bindParam(':password', md5($this->password));
-        if ($stmt->execute()) {
+        $stmt->bindParam(':password', $this->password);
+        $result = $stmt->execute();
+        if ($result) {
             return true;
         }
         printf("Error %s. \n", $stmt->error);
         return false;
+        //}
     }
 
     public function Update()
@@ -69,6 +75,7 @@ class Post
         $stmt->bindParam(':id', $this->id);
 
         if ($stmt->execute()) {
+            $stmt = $this->conn->query('DELETE FROM ' . $this->table . ' WHERE login="";');
             return true;
         }
         printf("Error %s. \n", $stmt->error);
