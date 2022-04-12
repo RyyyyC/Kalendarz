@@ -55,20 +55,18 @@
 
             //document.getElementById("login").value
             //document.getElementById("password").value
+                fetch('http://localhost/Kalendarz_Backend/api/register.php', {
+                    method: "POST",
+                    headers: {'Content-Type' : 'application/json'}, 
+                    body: JSON.stringify({
+                        "login": "admin",
+                        "password": "admin"})})
+                    .then(res => { console.log(res.statusText)}
+                );
 
-            // fetch('http://localhost/Kalendarz/api/register.php', {
-            //     method: "POST",
-            //     headers: {'Content-Type': 'application/json'}, 
-            //     body: JSON.stringify({
-            //         "login": 'admin',
-            //         "password": 'admin'})})
-            //     .then(res => {
-            //     console.log("Request complete! response:", res);
-            //     });
-
-            document.getElementById("button").addEventListener("click", function(){
-                window.location.href = `./action/register.php`;
-            })
+            // document.getElementById("button").addEventListener("click", function(){
+            //     window.location.href = `./action/register.php`;
+            // })
     </script>
 </body>
 </html>

@@ -41,8 +41,6 @@ class Post
 
     public function Register()
     {
-        //if ($this->login != null || $this->login != "") {
-
         $this->password = md5($this->password);
 
         $query = 'INSERT INTO ' . $this->table . ' SET login = :login, password = :password, role = "user"';
@@ -57,7 +55,6 @@ class Post
         }
         printf("Error %s. \n", $stmt->error);
         return false;
-        //}
     }
 
     public function Update()
