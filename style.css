@@ -1,0 +1,221 @@
+*{
+    margin: 0 auto;
+}
+.Background{
+    margin:0%;
+    width: 100%;
+    height: auto;
+    min-height: 100%;
+    background: #051821;
+}
+.Left_Block{
+    width: 444px;
+    height: 100%;
+    background-color:#051821;
+    float:left;
+}
+.Date{
+    width:  20.3125vw;
+    height:  35.859124866595515vh;
+    background: #D39906;
+    border-radius: 0px 0px 40px 0px;
+    margin-left: 0%;
+    line-height: 2em;
+}
+.Weather{
+    width:  18.489583333333332vw;
+    height: 30.73639274279616vh;
+    margin-top:57%;
+    margin-left: 5%;
+    background: #266867;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 30px;
+}
+.currentDate{
+    padding-top: 3vh;
+    font-family: 'Quicksand';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 3em;
+    line-height: 2em;
+    text-align: center;
+
+    color: #E9EEEE;
+
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.Account{
+    margin-top:1%;
+    width: 349px;
+    height: 41px;
+    margin-left: 1vw;
+    font-family: 'Quicksand';
+    font-style: normal;
+    font-size: 2.5em;
+    line-height: 50px;
+    text-align: center;
+
+    color: #FFFFFF;
+    text-decoration: none !important;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+input{
+    background-color:#051821;
+    border: none;
+    border-bottom: 2px solid white;
+    width: 249.01px;
+    padding: 5%;
+    outline: none;
+    font-family: 'Quicksand';
+    color:white;
+    font-size: 20px;
+    text-align: center;
+}
+#Register{
+    font-size: 0.5em;
+    color: white;
+}
+a{
+    color: white;
+    text-decoration: none;
+}
+.Cards{ 
+    display: flex;
+    flex-wrap:wrap;
+}
+table{
+    background-color: #266867;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 0 0 30px 30px;
+    width: 250px;
+    border-spacing: 0;
+    margin: 20px;
+}
+tbody{
+    height: 250px;
+}
+thead{
+    text-align: center;
+    background: #1A4645;
+    width:250px;
+    border-radius: 30px 30px 0px 0px;
+}
+tr{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    padding: 0%;
+}
+td:last-of-type{
+    color: #FFF;
+    opacity: 0.55;    
+}
+td{
+    
+    text-align: center;
+    font-family: "QuickSand";
+    font-weight: bold;
+    @media (min-width: 1920px){
+        font-size: 1.3em;
+    }
+    font-size: 0.7em;
+    border-radius: 30px 30px 0px 0px;
+}
+.clock{
+    width: 250px;
+    height: 250px;
+    margin: 20px;
+    background: #D39906;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 30px;
+}
+.currentYear{
+    width: 540px;
+    height: 250px;
+    margin: 20px;
+    background: #1A4645;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 30px;
+    color:white;
+    text-align: center;
+    font-family: "QuickSand";
+    font-size: 5em;
+}
+
+.theme-switch {
+    display: inline-block;
+    height: 34px;
+    position: relative;
+    width: 60px;
+  }
+  
+  .theme-switch input {
+    display: none;
+  }
+  
+  .theme-switch-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: 20px;
+  }
+  
+  .theme-switch-wrapper em {
+    margin-left: 10px;
+    font-size: 1rem;
+  }
+  
+  .slider {
+    background-color: #ccc;
+    bottom: 0;
+    cursor: pointer;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: 0.4s;
+  }
+  
+  .slider:before {
+    background-color: #fff;
+    bottom: 4px;
+    content: "";
+    height: 26px;
+    left: 4px;
+    position: absolute;
+    transition: 0.4s;
+    width: 26px;
+  }
+  
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+  
+  input:checked + .slider {
+    background-color:#D39906;;
+  }
+  
+  input:checked + .slider:before {
+    transform: translateX(26px);
+  }
+
+  :root {
+    --primary-color: #24242b;
+    --secondary-color: #433055;
+    --font-color: #3f3f3f;
+    --bg-color: #f3f3f3;
+    --heading-color: #2a2a23;
+  }
+  
+  html[data-theme="dark"] {
+    --primary-color: #f89898;
+    --secondary-color: #8894b3;
+    --font-color: #d8d8f6;
+    --bg-color: #242424;
+    --heading-color: #818cab;
+  }
+ 
