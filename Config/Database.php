@@ -42,3 +42,19 @@ class Database
 
 $database = new Database();
 $database->AddValues();
+
+    public function ConnectToDatabase(){
+        $conn = new mysqli($this->host, $this->user, $this->password, $this->database);
+        if($conn->connect_error){
+            die("Błąd połaczenia: " . $conn->connect_error);
+		} else {
+            echo("Polączono!");
+			return $conn;
+		}
+    }
+
+    public function DisconnectFromDatabase(){
+        return $conn->close();
+    }
+}
+?>
