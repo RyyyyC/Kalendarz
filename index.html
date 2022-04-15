@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" integrity="sha512-c42qTSw/wPZ3/5LBzD+Bw5f7bSF2oxou6wEb+I/lqeaKV5FDIfMvvRp772y4jcJLKuGUOpbJMdg/BTl50fJYAw==" crossorigin="anonymous" />
+        <title>Kalendarz</title>
+    </head>
+    <body>
+        <div class="Background">
+            <div class="Left_Block">
+                <div class="Date">
+                    <div class="currentDate"></div>
+                </div>
+                <div class="Account">
+                    <p>Zaloguj się!</p>
+                    <input type="text" name=""><br />
+                    <input type="password" name="">
+                    <p id="Register">Nie masz konta?</p>
+                    <p id="Register"><a href="" >Zarejestruj się!</a></p>
+                </div>
+                <div class="Weather">
+                    <div class="ThemeSwtWr">
+                        <label class="theme-switch" for="checkbox">
+                          <input type="checkbox" id="checkbox" />
+                          <div class="slider round"></div>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <dialog id="Days">
+                <button id="Close"></button>
+                <div id="TEST">
+
+                </div>
+            </dialog>
+            <div class="Cards">
+            </div>
+        </div>
+        <script src="scripts/CurrentDate.js"></script>
+        <script src="scripts/daysInMonth.js"></script>
+        <script src="scripts/Theme.js"></script>
+        <script src="scripts/Clock.js"></script>
+        <script src="scripts/DialogWindows.js"></script>
+    </body>
+</html>
