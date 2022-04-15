@@ -13,23 +13,11 @@ months = {
     "Dec": 31
 }
 
+
 days = ["MON", "TUE", "WED", "THUR", "FRI", "SAT", "SUN"]
 monthsIndex = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
 
-monthsHTML = {
-    "Jan": document.getElementById("Jan"),
-    "Feb": document.getElementById("Feb"),
-    "Mar": document.getElementById("Mar"),
-    "Apr": document.getElementById("Apr"),
-    "May": document.getElementById("May"),
-    "Jun": document.getElementById("Jun"),
-    "Jul": document.getElementById("Jul"),
-    "Aug": document.getElementById("Aug"),
-    "Sep": document.getElementById("Sep"),
-    "Oct": document.getElementById("Oct"),
-    "Nov": document.getElementById("Nov"),
-    "Dec": document.getElementById("Dec")
-}
+
 
 tempArray = {
     "Jan": [],
@@ -49,6 +37,30 @@ tempArray = {
 date = new Date()
 
 year = date.getFullYear();
+month= 0
+while(month!=12){
+        if(month==7)
+            document.getElementsByClassName("Cards")[0].innerHTML += '<div class="clockCont"><article class="clock"><div class="hours-container"><div class="hours"></div></div><div class="minutes-container"><div class="minutes"></div></div><div class="seconds-container"><div class="seconds"></div></div></article></div>'
+        document.getElementsByClassName("Cards")[0].innerHTML += `<table id="ShowDay" class="${monthsIndex[month]}"><thead><tr><td id="Month">${monthsIndex[month]}</td></tr></thead><tbody id="${monthsIndex[month]}"></tbody></table>`
+        if(month==11)
+            document.getElementsByClassName("Cards")[0].innerHTML += `<div class="currentYear"></div>`
+        month++
+}
+
+monthsHTML = {
+    "Jan": document.getElementById("Jan"),
+    "Feb": document.getElementById("Feb"),
+    "Mar": document.getElementById("Mar"),
+    "Apr": document.getElementById("Apr"),
+    "May": document.getElementById("May"),
+    "Jun": document.getElementById("Jun"),
+    "Jul": document.getElementById("Jul"),
+    "Aug": document.getElementById("Aug"),
+    "Sep": document.getElementById("Sep"),
+    "Oct": document.getElementById("Oct"),
+    "Nov": document.getElementById("Nov"),
+    "Dec": document.getElementById("Dec")
+}
 
 document.onkeydown = (e) =>{
     e = e || window.event;
@@ -104,12 +116,12 @@ function makeTd(yearPass){
         for(j=0;j!=months[monthsIndex[i]];j++){
             if(day < 7 && week==0 && day > 0 ){
                 for(x = day; x != 1; x--){
-                    document.querySelector(`#${monthsIndex[i]}${week}`).innerHTML += `<td>&nbsp;</td>`
+                    document.querySelector(`#${monthsIndex[i]}${week}`).innerHTML += `<td></td>`
                 }
             }
             if(day == 0 && week == 0){
                 for(x = 6; x != 1; x--){
-                    document.querySelector(`#${monthsIndex[i]}${week}`).innerHTML += `<td>&nbsp;</td>`
+                    document.querySelector(`#${monthsIndex[i]}${week}`).innerHTML += `<td></td>`
                 }
             }
     
@@ -124,7 +136,7 @@ function makeTd(yearPass){
         if(week == monthsHTML[monthsIndex[i]].children.length - 1){
             numberOfItems = document.querySelector(`#${monthsIndex[i]+(week-1)}`).children.length
             for(j = 0; j != 7 - numberOfItems; j++)
-                document.querySelector(`#${monthsIndex[i]+(week-1)}`).innerHTML += `<td>&nbsp;</td>`
+                document.querySelector(`#${monthsIndex[i]+(week-1)}`).innerHTML += `<td></td>`
         }
     }
 }

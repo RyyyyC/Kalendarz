@@ -3,6 +3,8 @@
         <meta charset="UTF-8">
         <link rel="stylesheet" type="text/css" href="style.css">
         <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" integrity="sha512-c42qTSw/wPZ3/5LBzD+Bw5f7bSF2oxou6wEb+I/lqeaKV5FDIfMvvRp772y4jcJLKuGUOpbJMdg/BTl50fJYAw==" crossorigin="anonymous" />
+        <title>Kalendarz</title>
     </head>
     <body>
         <div class="Background">
@@ -18,7 +20,7 @@
                     <p id="Register"><a href="" >Zarejestruj się!</a></p>
                 </div>
                 <div class="Weather">
-                    <div class="theme-switch-wrapper">
+                    <div class="ThemeSwtWr">
                         <label class="theme-switch" for="checkbox">
                           <input type="checkbox" id="checkbox" />
                           <div class="slider round"></div>
@@ -26,72 +28,19 @@
                     </div>
                 </div>
             </div>
+            <dialog id="Days">
+                <button id="Close"></button>
+                <div id="TEST">
+
+                </div>
+            </dialog>
             <div class="Cards">
-                <table>
-                    <thead><tr><td>JAN</td></tr></thead>
-                    <tbody id="Jan">
-                    </tbody>
-                </table>
-                <table>
-                    <thead><tr><td>FEB</td></tr></thead>
-                    <tbody id="Feb">
-                    </tbody>
-                </table>
-                <table>
-                    <thead><tr><td>MAR</td></tr></thead>
-                    <tbody id="Mar">
-                    </tbody>
-                </table>
-                <table>
-                    <thead><tr><td>APR</td></tr></thead>
-                    <tbody id="Apr">
-                    </tbody>
-                </table>
-                <table>
-                    <thead><tr><td>MAY</td></tr></thead>
-                    <tbody id="May">
-                    </tbody>
-                </table>
-                <table>
-                    <thead><tr><td>JUN</td></tr></thead>
-                    <tbody id="Jun">
-                    </tbody>
-                </table>
-                <table>
-                    <thead><tr><td>JUL</td></tr></thead>
-                    <tbody id="Jul">
-                    </tbody>
-                </table>
-                <div class="clock"></div>
-                <table>
-                    <thead><tr><td>AUG</td></tr></thead>
-                    <tbody id="Aug">
-                    </tbody>
-                </table>
-                <table>
-                    <thead><tr><td>SEP</td></tr></thead>
-                    <tbody id="Sep">
-                    </tbody>
-                </table>
-                <table>
-                    <thead><tr><td>OCT</td></tr></thead>
-                    <tbody id="Oct">
-                    </tbody>
-                </table>
-                <table>
-                    <thead><tr><td>NOV</td></tr></thead>
-                    <tbody id="Nov">
-                    </tbody>
-                </table>
-                <table>
-                    <thead><tr><td>DEC</td></tr></thead>
-                    <tbody id="Dec">
-                    </tbody>
-                </table>
-                <div class="currentYear"></div>
             </div>
         </div>
-        <script src="Scripts/CurrentDate.js"></script>
-        <script src="Scripts/daysInMonth.js"></script>
+        <script src="scripts/CurrentDate.js"></script>
+        <script src="scripts/daysInMonth.js"></script>
+        <script src="scripts/Theme.js"></script>
+        <script src="scripts/Clock.js"></script>
+        <script src="scripts/DialogWindows.js"></script>
     </body>
 </html>
