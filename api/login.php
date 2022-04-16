@@ -13,7 +13,7 @@ $post->Login();
 $post_arr = array(
     'id' => $post->id,
     'login' => $post->login,
-    'password' => md5($post->password),
+    'password' => $post->password,
     'role' => $post->role
 );
 if (json_encode($post_arr["id"]) == 'null') {
