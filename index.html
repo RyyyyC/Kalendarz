@@ -15,20 +15,26 @@
                 <div class="Account">
                     <div id="loginForm" style="display: block;">
                         <p>Zaloguj się!</p>
-                        <input type="text" name="" id="userLogin"><br />
-                        <input type="password" name="" id="userPassword">
+                        <input type="text" id="userLogin"><br />
+                        <input type="password" id="userPassword">
                         <input type="button" value="Zaloguj" id="loginInUser">
                         <p id="Register">Nie masz konta?</p>
                         <p id="Register"><a id="registerClick">Zarejestruj się!</a></p>
                     </div>
                     <div id="registerForm" style="display: none;">
                         <p>Zarejestruj się!</p>
-                        <input type="text" name="" id="createUserLogin"><br />
-                        <input type="password" name="" placeholder="haslo" id="createUserPassword">
-                        <input type="password" name="" placeholder="powtorz haslo" id="repeatUserPassword">
+                        <input type="text" id="createUserLogin"><br />
+                        <input type="password" placeholder="haslo" id="createUserPassword">
+                        <input type="password" placeholder="powtorz haslo" id="repeatUserPassword">
                         <input type="button" value="Zarejestruj" id="createNewUser">
                         <p id="Login">Masz konto?</p>
                         <p id="Login"><a id="loginClick" >Zaloguj się!</a></p>
+                    </div>
+                    <div id="addEventForm" style="display: none;">
+                        <p>Dodaj wydarzenie!</p>
+                        <input type="text" id="eventName"><br />
+                        <input type="date" id="eventDate"><br />
+                        <input type="color" id="eventColor">
                     </div>
                 </div>
                 <div class="Weather">
@@ -43,7 +49,7 @@
             <dialog id="Days">
                 <button id="Close"></button>
                 <div id="TEST">
-
+                    
                 </div>
             </dialog>
             <div class="Cards">

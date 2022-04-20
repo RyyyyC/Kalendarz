@@ -39,6 +39,20 @@ class Post
         return $stmt;
     }
 
+    public function CheckExistingAccount()
+    {
+        $query = 'SELECT * FROM ' . $this->table . ' WHERE login = ?;';
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(1, $this->login);
+
+        $stmt->execute();
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if ($row->num_rows > 0)
+            return true;
+        return false;
+    }
+
     public function Register()
     {
         $this->password = md5($this->password);
