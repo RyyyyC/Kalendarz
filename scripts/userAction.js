@@ -1,8 +1,10 @@
 document.getElementById("loginInUser").addEventListener("click", function(){
     fetch(`http://localhost/Kalendarz/api/login.php?login=${document.getElementById("userLogin").value}&password=${document.getElementById("userPassword").value}`)
-        .then(response => response.statusText == "OK"
-        ?loginOK()
-        :alert("Ups!\nZły login lub hasło!"));
+    .then(response => response.json())
+    .then(data => console.log(data));
+        // .then(response => response.statusText == "OK"
+        // ?loginOK()
+        // :alert("Ups!\nZły login lub hasło!"));
 });
 
 
@@ -12,18 +14,19 @@ document.getElementById("createNewUser").addEventListener("click", function(){
     }
         
     fetch(`http://localhost/Kalendarz/api/checkExistingAccount.php?login=${document.getElementById("createUserLogin").value}`)
-    .then(response => checkIfExists(response.statusText));
+    .then(response => response.json())
+    .then(data => console.log(data));
     
-    fetch('http://localhost/Kalendarz/api/register.php', {
-        method: "POST",
-        headers: {'Content-Type' : 'application/json'}, 
-        body: JSON.stringify({
-            "login": document.getElementById("createUserLogin").value,
-            "password": document.getElementById("createUserPassword").value
-        })})
-        .then(response => response.statusText == "OK"
-        ?registerOK()
-        :alert("Ups!\nCoś poszło nie tak!"));
+    // fetch('http://localhost/Kalendarz/api/register.php', {
+    //     method: "POST",
+    //     headers: {'Content-Type' : 'application/json'}, 
+    //     body: JSON.stringify({
+    //         "login": document.getElementById("createUserLogin").value,
+    //         "password": document.getElementById("createUserPassword").value
+    //     })})
+    //     .then(response => response.statusText == "OK"
+    //     ?registerOK()
+    //     :alert("Ups!\nCoś poszło nie tak!"));
     
 });
 
@@ -38,11 +41,11 @@ function checkIfExists(){
 }
 
 function loginOK(){
-    document.getElementById("loginForm").style = "display:none;"
-    document.getElementById("addEventForm").style = "display:block;"
+    document.getElementById("loginForm").style = "display:none;";
+    document.getElementById("addEventForm").style = "display:block;";
 }
 
 function registerOK(){
     document.getElementById("registerForm").style = "display:none;";
-    document.getElementById("addEventForm").style = "display:block;"
+    document.getElementById("addEventForm").style = "display:block;";
 }

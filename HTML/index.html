@@ -18,9 +18,9 @@
             //     console.log(req.responseText)
 
             // GET
-            // fetch(`http://localhost/Kalendarz/api/login.php?login=admin&password=admin`)
-            //     .then(response => response.json())
-            //     .then(data => console.log(data));
+            fetch(`http://localhost/Kalendarz/api/login.php?login=admin&password=admin`)
+                .then(response => response.json())
+                .then(data => console.log(data));
 
             // i = 0
             // document.getElementById("button").addEventListener("click", function(){
@@ -55,14 +55,14 @@
 
             //document.getElementById("login").value
             //document.getElementById("password").value
-                fetch('http://localhost/Kalendarz_Backend/api/register.php', {
-                    method: "POST",
-                    headers: {'Content-Type' : 'application/json'}, 
-                    body: JSON.stringify({
-                        "login": "admin",
-                        "password": "admin"})})
-                    .then(res => { console.log(res.statusText)}
-                );
+                // fetch('http://localhost/Kalendarz_Backend/api/register.php', {
+                //     method: "POST",
+                //     headers: {'Content-Type' : 'application/json'}, 
+                //     body: JSON.stringify({
+                //         "login": "admin",
+                //         "password": "admin"})})
+                //     .then(res => { console.log(res.statusText)}
+                // );
 
             // document.getElementById("button").addEventListener("click", function(){
             //     window.location.href = `./action/register.php`;

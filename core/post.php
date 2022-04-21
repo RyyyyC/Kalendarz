@@ -46,9 +46,8 @@ class Post
         $stmt->bindParam(1, $this->login);
 
         $stmt->execute();
-        $row = $stmt->fetch(PDO::FETCH_ASSOC);
-
-        if ($row->num_rows > 0)
+        $stmt->fetch(PDO::FETCH_ASSOC);
+        if ($stmt->num_rows > 0)
             return true;
         return false;
     }

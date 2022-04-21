@@ -18,9 +18,8 @@ $post_arr = array(
 );
 
 if ($result) {
-    http_response_code(400);
     print_r(json_encode(array('message' => 'Bad request.', 'Description' => 'Account exists!')));
+    http_response_code(400);
 } else {
-    print_r(json_encode($post_arr));
     http_response_code(200);
 }
