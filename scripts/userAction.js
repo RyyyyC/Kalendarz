@@ -1,44 +1,36 @@
 document.getElementById("loginInUser").addEventListener("click", function(){
     fetch(`http://localhost/Kalendarz/api/login.php?login=${document.getElementById("userLogin").value}&password=${document.getElementById("userPassword").value}`)
-    .then(response => response.json())
-    .then(data => console.log(data));
-        // .then(response => response.statusText == "OK"
-        // ?loginOK()
-        // :alert("Ups!\nZły login lub hasło!"));
+    .then(response => response.status==200?loginOK():alert("Ups!\nZły login lub hasło!"));
 });
-
 
 document.getElementById("createNewUser").addEventListener("click", function(){
-    if(document.getElementById("createUserPassword").value != document.getElementById("repeatUserPassword").value){
+    if(document.getElementById("createUserPassword").value != document.getElementById("repeatUserPassword").value)
         return alert("Hasła nie są takie same!");
-    }
-        
-    fetch(`http://localhost/Kalendarz/api/checkExistingAccount.php?login=${document.getElementById("createUserLogin").value}`)
-    .then(response => response.json())
-    .then(data => console.log(data));
-    
-    // fetch('http://localhost/Kalendarz/api/register.php', {
-    //     method: "POST",
-    //     headers: {'Content-Type' : 'application/json'}, 
-    //     body: JSON.stringify({
-    //         "login": document.getElementById("createUserLogin").value,
-    //         "password": document.getElementById("createUserPassword").value
-    //     })})
-    //     .then(response => response.statusText == "OK"
-    //     ?registerOK()
-    //     :alert("Ups!\nCoś poszło nie tak!"));
-    
+    fetch(`http://localhost/Kalendarz/api/register.php`,{
+        method: "POST",
+        headers: {'Content-Type' : 'application/json'},
+        body: JSON.stringify({
+            "login" :document.getElementById("createUserLogin").value,
+            "password": document.getElementById("createUserPassword").value
+        })})
+    .then(response => response.status==200?registerOK():alert("Ups!\nTakie konto już istnieje!"))
+    //.then(response => response.json())
+    //.then(data => console.log(data));
 });
 
-function checkIfExists(){
-    responseGet = true;
-    if(responseGet == "OK"){
-        console.log(responseGet)
-        return true;
-    }
-    console.log(responseGet)
-    return false;
-}
+document.getElementById("addEvent").addEventListener("click", function(){
+    sessionStorage.getItem("idUser");
+    fetch(`http://localhost/Kalendarz/api/events/addEvent.php`, {
+        method: "POST",
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+            "idUser" : 1,
+            "name" : document.getElementById("").value,
+            "color" : document.getElementById("").value,
+            "date" : document.getElementById("").value
+        })
+    })
+})
 
 function loginOK(){
     document.getElementById("loginForm").style = "display:none;";
