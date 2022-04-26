@@ -39,15 +39,14 @@ class Post
         return $stmt;
     }
 
-    public function CheckExistingAccount()
+    public function CheckExistingAccount($login)
     {
         $query = 'SELECT * FROM ' . $this->table . ' WHERE login = ?;';
         $stmt = $this->conn->prepare($query);
-        $stmt->bindParam(1, $this->login);
+        $stmt->bindParam(1, $login);
 
         $stmt->execute();
-        $stmt->fetch(PDO::FETCH_ASSOC);
-        if ($stmt->num_rows > 0)
+        if ($stmt->rowCount() != 0)
             return true;
         return false;
     }

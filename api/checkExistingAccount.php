@@ -21,5 +21,6 @@ if ($result) {
     print_r(json_encode(array('message' => 'Bad request.', 'Description' => 'Account exists!')));
     http_response_code(400);
 } else {
+    print_r(json_encode(array('message' => 'OK.', 'Description' => 'Account does not exists!')));
     http_response_code(200);
 }

@@ -13,12 +13,17 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
     $post->login = $data->login;
     $post->password = $data->password;
-    if ($post->Register()) {
-        http_response_code(200);
-        print_r(json_encode(array('message' => 'Post created.', 'login' => $post->login, 'password' => $post->password)));
-    } else {
+    if(!$post->CheckExistingAccount($data->login)){
+        if ($post->Register()) {
+            print_r(json_encode(array('message' => 'Post created.', 'login' => $post->login, 'password' => $post->password)));
+            http_response_code(200);
+        } else {
+            print_r(json_encode(array('message' => 'Post not created.')));
+            http_response_code(400);
+        }
+    }else{
+        print_r(json_encode(array('message' => 'Account Exists.')));
         http_response_code(400);
-        print_r(json_encode(array('message' => 'Post not created.')));
     }
 }
 ?>
