@@ -5,7 +5,6 @@
         element.addEventListener("click", function(e) {
             dialog = document.getElementById("Days");
             dialog.querySelector("#Month").innerHTML = e.currentTarget.className;
-            //dialog.document.getElementById("TEST").innerHTML += e.currentTarget.className
             dialog.show();    
         }, false);    
     });
