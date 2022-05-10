@@ -15,7 +15,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $post->password = $data->password;
     if(!$post->CheckExistingAccount($data->login)){
         if ($post->Register()) {
-            print_r(json_encode(array('message' => 'Post created.', 'login' => $post->login, 'password' => $post->password)));
+            print_r(json_encode(array('message' => 'Post created.' ,'login' => $post->login, 'password' => $post->password)));
             http_response_code(200);
         } else {
             print_r(json_encode(array('message' => 'Post not created.')));

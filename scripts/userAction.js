@@ -1,4 +1,5 @@
 sessionStorage.clear()
+var id;
 
 //#region Login
 document.getElementById("loginInUser").addEventListener("click", function(){
@@ -7,17 +8,20 @@ document.getElementById("loginInUser").addEventListener("click", function(){
 });
 
 function loginOK(response){
-    
     response.json().then((data) => {
-        sessionStorage.setItem('idUser', data["id"])
+        setIdUser(data["id"]);
     });
     document.getElementById("loginForm").style = "display:none;";
     document.getElementById("addEventForm").style = "display:block;";
-    console.log(sessionStorage.getItem('idUser'));
+}
+
+function setIdUser(idUser){
+    id = idUser;
+    console.log(id)
 }
 //#endregion
 
-//#regtion Register
+//#region Register
 document.getElementById("createNewUser").addEventListener("click", function(){
     if(document.getElementById("createUserPassword").value != document.getElementById("repeatUserPassword").value)
         return alert("Hasła nie są takie same!");
@@ -28,27 +32,44 @@ document.getElementById("createNewUser").addEventListener("click", function(){
             "login" :document.getElementById("createUserLogin").value,
             "password": document.getElementById("createUserPassword").value
         })})
-    .then(response => response.status==200?registerOK():alert("Ups!\nTakie konto już istnieje!"));
+    .then(response => response.status==200?registerOK(response ,document.getElementById("createUserPassword").value):alert("Ups!\nTakie konto już istnieje!"));
 });
 
-function registerOK(){
+function registerOK(response, password){
+    response.json().then((data) =>{
+        fetch(`http://localhost/Kalendarz/api/login.php?login=${data["login"]}&password=${password}`)
+        .then(response => response.json())
+        .then(data => setIdUser(data["id"]))
+    })
     document.getElementById("registerForm").style = "display:none;";
     document.getElementById("addEventForm").style = "display:block;";
 }
 //#endregion
 
+//#region Logout
+document.getElementById("logout").addEventListener("click", function(){
+    window.location.reload();
+});
+//#endregion
+
 //#region Add Events
 document.getElementById("addEvent").addEventListener("click", function(){
-    sessionStorage.getItem("idUser");
-    fetch(`http://localhost/Kalendarz/api/events/addEvent.php`, {
-        method: "POST",
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({
-            "idUser" : 1,
-            "name" : document.getElementById("").value,
-            "color" : document.getElementById("").value,
-            "date" : document.getElementById("").value
+    if(document.getElementById("eventName").value.length > 0)
+    {
+        fetch(`http://localhost/Kalendarz/api/events/addEvent.php`, {
+            method: "POST",
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                "idUser" : id,
+                "name" : document.getElementById("eventName").value,
+                "color" : document.getElementById("eventColor").value,
+                "date" : document.getElementById("eventDate").value
+            })
         })
-    })
+    }
+    else
+    {
+        alert("Brak nazwy wydarzenia!")
+    }
 })
 //#endregion
