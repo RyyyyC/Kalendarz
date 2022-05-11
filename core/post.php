@@ -39,11 +39,11 @@ class Post
         return $stmt;
     }
 
-    public function CheckExistingAccount($login)
+    public function CheckExistingAccount()
     {
         $query = 'SELECT * FROM ' . $this->table . ' WHERE login = ?;';
         $stmt = $this->conn->prepare($query);
-        $stmt->bindParam(1, $login);
+        $stmt->bindParam(1, $this->login);
 
         $stmt->execute();
         if ($stmt->rowCount() != 0)
