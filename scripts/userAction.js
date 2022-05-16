@@ -19,7 +19,7 @@ function loginOK(response){
 
 function setIdUser(idUser){
     id = idUser;
-    console.log(id)
+    setDialogIdUser(id)
 }
 //#endregion
 
@@ -71,8 +71,8 @@ document.getElementById("addEvent").addEventListener("click", function(){
             })
         })
         document.getElementById("eventName").value = "";
+        loadEvents(id);
         alert("Dodano wydarzenie!")
-
     }
     else
     {

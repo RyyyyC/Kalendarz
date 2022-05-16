@@ -14,6 +14,17 @@
     background-color: var(--background-color);
     float:left;
 }
+#monthView, #monthView>tbody{
+  width: 50%;
+}
+#monthView>thead>tr{
+  text-align: center;
+}
+#monthView>tbody>tr{
+  margin: 0;
+  display: flex;
+  justify-content: space-around;
+}
 .Date{
     width:  20.3125vw;
     height:  35.859124866595515vh;
@@ -153,6 +164,13 @@ td{
 #Month{
   width: 248px;
 }
+.events{
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  min-width: 100px;
+}
+
 #Days{
   width:60%;
   height: 60%;

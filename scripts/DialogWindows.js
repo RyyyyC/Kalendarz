@@ -1,12 +1,17 @@
+var idUser;
+function setDialogIdUser(id){
+    idUser = id;
+}
 (function() {    
     var dialog = document.getElementById('Days');
     document.querySelectorAll("#ShowDay").forEach(element => {
         element.myParam = element.className
         element.addEventListener("click", function(e) {
-            dialog = document.getElementById("Days"); // Wazne
-            //dialog.querySelector("#Month").innerHTML = e.currentTarget.className; // Wazne
+            dialog = document.getElementById("Days");
             dialog.innerHTML ="";
             CreateTable(e.currentTarget.className, dialog);
+            
+            loadEvents(idUser);
             dialog.show();    
         }, false);    
     }); 
@@ -68,6 +73,7 @@ function CreateTable(month, dialog){
         if(j==0 || day==1)
             week++
             dialog.querySelector(`#${month}${week-1}`).innerHTML += `<td style="text-align:right; margin-left:30px" id='${month}Day${j+1}'>${j+1}<div>*</div></td>`
+
         tempArray[month].push(days[day-1])
         if(day==7)
             day=0
