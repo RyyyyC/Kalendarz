@@ -35,8 +35,8 @@
 }
 .Weather{
     width:  18.489583333333332vw;
-    height: 30.73639274279616vh;
-    margin-top:69%;
+    height: 10vh;
+    margin-top:90%;
     margin-left: 5%;
     background: var(--cards-back-color);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -174,7 +174,7 @@ td{
 #Days{
   width:60%;
   height: 60%;
-  background-color:#F4FFEF;
+  background-color: var(--date-color);
   margin-left: 30%;
   margin-top: 10%;
   border:none;
@@ -287,6 +287,7 @@ button:hover::after {
     height: 34px;
     position: relative;
     width: 60px;
+    margin-top: 6%;
   }
   
   .theme-switch input {
@@ -432,4 +433,57 @@ button:hover::after {
       animation: rotate 3600s infinite steps(60); 
     } .seconds-container { 
       animation: rotate 60s infinite steps(60); 
+    }
+    #monthView, #monthView>tbody{
+      width: 50%;
+    }
+    #monthView>tbody>tr{
+      margin: 0;
+      display: flex;
+      float: left;
+      justify-content: center;
+      padding: 10px;
+      text-align: center;
+      color: white;
+    }
+    #monthView{
+      float:left;
+      margin-top: 5%;
+    }
+    #Days>h1{
+      margin-right: 70%;
+      text-align: left;
+      color: white;
+      font-family: Quicksand;
+    }
+    #Wydarzenie{
+      text-align: right;
+      margin-right: 5%;
+      font-size: 2em;
+      margin-top: 2%;
+      color: white;
+      font-family: Quicksand;
+    }
+    #eventName{
+      margin-top: 1%;
+      margin-left: 23%;
+      height: 10px;
+      border: none;
+      height: 20px;
+      border-radius: 20px;
+    }
+    #eventDate{
+      margin-top: 1%;
+      margin-left: 34.5%;
+    }
+    #eventColor{
+      margin-top: 1%;
+      margin-left: 34.5%;
+    }
+    #addEvent{
+      margin-top: 1%;
+      margin-left: 23%;
+      height: 20px;
+      border: none;
+      border-radius: 20px;
     }
