@@ -1,12 +1,17 @@
+var idUser;
+function setDialogIdUser(id){
+    idUser = id;
+}
 (function() {    
     var dialog = document.getElementById('Days');
     document.querySelectorAll("#ShowDay").forEach(element => {
         element.myParam = element.className
         element.addEventListener("click", function(e) {
-            dialog = document.getElementById("Days"); // Wazne
-            //dialog.querySelector("#Month").innerHTML = e.currentTarget.className; // Wazne
+            dialog = document.getElementById("Days");
             dialog.innerHTML ="";
             CreateTable(e.currentTarget.className, dialog);
+            
+            loadEvents(idUser);
             dialog.show();    
         }, false);    
     }); 
@@ -34,7 +39,8 @@ function CreateTable(month, dialog){
     document.querySelector(`#${month}`).innerHTML += '<tr><td class="mon" id="1">Mon</td><td class="thu" id="2">Thu</td><td class="wed" id="3">Wed</td><td class="thur" id="4">Thur</td><td class="fri" id="5">Fri</td><td class="sat" id="6">Sat</td><td class="sun" id="7">Sun</td></tr>';
 
     week=0
-
+    newDate = new Date(year, monthNumber[month])
+    day = newDate.getDay();
     for(j=0;j != months[month];j++){
         if(j==0 || day ==1){
             dialog.querySelector(`#${month}`).innerHTML += `<tr id=${month+week}></tr>`
@@ -62,7 +68,7 @@ function CreateTable(month, dialog){
 
         if(j==0 || day==1)
             week++
-            dialog.querySelector(`#${month}${week-1}`).innerHTML += `<td id='${month}Day${j+1}'>${j+1}</td>`
+        dialog.querySelector(`#${month}${week-1}`).innerHTML += `<td style='display: flex;' id='${month}Day${j+1}'>${j+1}<div class="events"></div></td>`    
         tempArray[month].push(days[day-1])
         if(day==7)
             day=0
