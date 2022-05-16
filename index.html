@@ -1,7 +1,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" type="text/css" href="styles/style.css">
         <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" integrity="sha512-c42qTSw/wPZ3/5LBzD+Bw5f7bSF2oxou6wEb+I/lqeaKV5FDIfMvvRp772y4jcJLKuGUOpbJMdg/BTl50fJYAw==" crossorigin="anonymous" />
         <title>Kalendarz</title>
@@ -13,30 +13,50 @@
                     <div class="currentDate"></div>
                 </div>
                 <div class="Account">
-                    <p>Zaloguj się!</p>
-                    <input type="text" name=""><br />
-                    <input type="password" name="">
-                    <p id="Register">Nie masz konta?</p>
-                    <p id="Register"><a href="" >Zarejestruj się!</a></p>
+                    <div id="loginForm" style="display: block;">
+                        <p>Zaloguj się!</p>
+                        <input type="text" id="userLogin" required><br />
+                        <input type="password" id="userPassword" required>
+                        <input type="button" value="Zaloguj" id="loginUser">
+                        <p id="Register">Nie masz konta?</p>
+                        <p id="Register"><a id="registerClick">Zarejestruj się!</a></p>
+                    </div>
+                    <div id="registerForm" style="display: none;">
+                        <p>Zarejestruj się!</p>
+                        <input type="text" id="createUserLogin" required><br />
+                        <input type="password" placeholder="haslo" id="createUserPassword" required>
+                        <input type="password" placeholder="powtorz haslo" id="repeatUserPassword" required>
+                        <input type="button" value="Zarejestruj" id="createNewUser">
+                        <p id="Login">Masz konto?</p>
+                        <p id="Login"><a id="loginClick" >Zaloguj się!</a></p>
+                    </div>
+                    <div id="addEventForm" style="display: none;">
+                        <p>Dodaj wydarzenie!</p>
+                        <input type="text" id="eventName" required><br />
+                        <input type="date" id="eventDate" required min="today"><br />
+                        <input type="color" id="eventColor" required><br />
+                        <input type="button" id="addEvent" value="Dodaj wydarzenie!"><br/>
+                        <input type="button" id="logout" value="Wyloguj!">
+                    </div>
                 </div>
                 <div class="Weather">
                     <div class="ThemeSwtWr">
                         <label class="theme-switch" for="checkbox">
-                          <input type="checkbox" id="checkbox" />
+                          <input type="checkbox" id="checkbox"/>
                           <div class="slider round"></div>
                         </label>
                     </div>
                 </div>
             </div>
             <dialog id="Days">
-                <button id="Close"></button>
-                <div id="TEST">
-
+                <div id="dialogMonth">
                 </div>
             </dialog>
             <div class="Cards">
             </div>
         </div>
+        <script src="scripts/userAction.js"></script>
+        <script src="scripts/changeForm.js"></script>
         <script src="scripts/CurrentDate.js"></script>
         <script src="scripts/daysInMonth.js"></script>
         <script src="scripts/Theme.js"></script>

@@ -127,7 +127,7 @@ function makeTd(yearPass){
     
             if(j==0 || day==1)
                 week++
-            document.querySelector(`#${monthsIndex[i]}${week-1}`).innerHTML += `<td>${j+1}</td>`
+            document.querySelector(`#${monthsIndex[i]}${week-1}`).innerHTML += `<td id='${monthsIndex[i]}Day${j+1}'>${j+1}</td>`
             tempArray[monthsIndex[i]].push(days[day-1])
             if(day==7)
                 day=0
