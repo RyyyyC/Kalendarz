@@ -72,8 +72,8 @@ function CreateTable(month, dialog){
 
         if(j==0 || day==1)
             week++
-            dialog.querySelector(`#${month}${week-1}`).innerHTML += `<td style="text-align:right; margin-left:30px" id='${month}Day${j+1}'>${j+1}<div>*</div></td>`
-
+        dialog.querySelector(`#${month}${week-1}`).innerHTML += `<td style="text-align:right; margin-left:30px" id='${month}Day${j+1}'><p>${j+1}</p><div></div></td>`    
+        
         tempArray[month].push(days[day-1])
         if(day==7)
             day=0

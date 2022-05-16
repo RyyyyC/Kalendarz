@@ -9,7 +9,6 @@ function readEvents(data){
     data.forEach(element => {
         date = new Date(element["date"])
         name = element["name"]
-        console.log(name)
-        document.querySelector(`#monthView.${monthsIndex[date.getMonth()]}>tbody>tr>#${monthsIndex[date.getMonth()]}Day${date.getDate()}>div`).innerHTML += `<div id='eventCircle'>${name[0]}</div>`
+        document.querySelector(`#monthView.${monthsIndex[date.getMonth()]}>tbody>tr>#${monthsIndex[date.getMonth()]}Day${date.getDate()}>div`).innerHTML += `<div id='eventCircle' style="background-color: ${element["color"]}; width:30px; height: 30px; border-radius: 50%; text-align: center; line-height: 25px;">${name[0]}</div>`
     });
 }
